@@ -1,5 +1,12 @@
-<script setup>
-    
-</script>
+<template>
+    <div id="app">
+      <Toaster rich-colors="" position="top-right"/>
+      <router-view />
+    </div>
+  </template>
 
-<template></template>
+<script>
+export default {
+    
+}
+</script>
