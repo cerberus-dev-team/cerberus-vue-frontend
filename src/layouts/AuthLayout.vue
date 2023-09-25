@@ -1,114 +1,46 @@
-<!--
-  This example requires some changes to your config:
-  
-  ```
-  // tailwind.config.js
-  module.exports = {
-    // ...
-    plugins: [
-      // ...
-      require('@tailwindcss/forms'),
-    ],
-  }
-  ```
--->
 <template>
-  <!--
-      This example requires updating your template:
-  
-      ```
-      <html class="h-full bg-gray-900">
-      <body class="h-full">
-      ```
-    -->
-  <div
-    class="flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8"
-  >
-    <div class="sm:mx-auto sm:w-full sm:max-w-sm">
-      <img
-        class="mx-auto h-10 w-auto"
-        src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=500"
-        alt="Your Company"
-      />
-      <h2
-        class="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-white"
-      >
-        Sign in to your account
-      </h2>
+  <div class="flex flex-1 min-h-screen">
+    <div
+      class="flex flex-1 bg-white flex-col justify-center px-4 sm:px-6 lg:px-20 xl:px-24"
+    >
+      <div class="w-full mx-auto">
+        <div class=" flex justify-center">
+          <img
+            class="w-24 md:w-24 lg:w-24 xl:w-24 2xl:w-24"
+            src="..//assets/CerberusIcon.svg"
+          />
+        </div>
+        <div>
+          <h1 class="text-2xl font-bold text-center text-CerberusDarkBlue-default">CERBERUS</h1>
+        </div>
+        <div>
+          <h2 class="text-CerberusLightBlue-default leading-6 text-lg pt-6 font-medium text-center">Autenticación requerida</h2>
+          <h2 class="text-CerberusLightBlue-default text-lg  font- font-medium text-center">Manteniendo la línea de defensa fuerte</h2>
+        </div>
+      </div>
+
+      <div class="mx-auto w-full pt-10 max-w-sm lg:w-96">
+        <router-view />
+      </div>
     </div>
 
-    <div class="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
-      <form class="space-y-6" action="#" method="POST">
-        <div>
-          <label
-            for="email"
-            class="block text-sm font-medium leading-6 text-white"
-            >Email address</label
-          >
-          <div class="mt-2">
-            <input
-              id="email"
-              name="email"
-              type="email"
-              autocomplete="email"
-              required=""
-              class="block w-full rounded-md border-0 bg-white/5 py-1.5 text-white shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-indigo-500 sm:text-sm sm:leading-6"
-            />
-          </div>
-        </div>
+    <div
+      class="hidden bg-CerberusLightGray-default object-center w-screen lg:block"
+    >
+      <!-- <div class="fixed top-3 right-4 flex items-center">
 
-        <div>
-          <div class="flex items-center justify-between">
-            <label
-              for="password"
-              class="block text-sm font-medium leading-6 text-white"
-              >Password</label
-            >
-            <div class="text-sm">
-              <a
-                href="#"
-                class="font-semibold text-indigo-400 hover:text-indigo-300"
-                >Forgot password?</a
-              >
-            </div>
-          </div>
-          <div class="mt-2">
-            <input
-              id="password"
-              name="password"
-              type="password"
-              autocomplete="current-password"
-              required=""
-              class="block w-full rounded-md border-0 bg-white/5 py-1.5 text-white shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-indigo-500 sm:text-sm sm:leading-6"
-            />
-          </div>
-        </div>
-
-        <div>
-          <button
-            type="submit"
-            class="flex w-full justify-center rounded-md bg-indigo-500 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500"
-          >
-            Sign in
-          </button>
-        </div>
-      </form>
-
-      <p class="mt-10 text-center text-sm text-gray-400">
-        Not a member?
-        {{ " " }}
-        <a
-          href="#"
-          class="font-semibold leading-6 text-indigo-400 hover:text-indigo-300"
-          >Start a 14 day free trial</a
-        >
-      </p>
+      </div> -->
+      <div class="w-full h-full flex justify-center object-center items-center">
+        <img
+          src="../assets/Banner2.jpg"
+          alt=""
+          draggable="false"
+          class="transition duration-200 ease-in-out max-h-screen w-full    object-left object-cover"
+        />
+      </div>
     </div>
   </div>
-  <router-view />
 </template>
-  
-
-<script setup>
+<script>
+export default {};
 </script>
-
