@@ -4,7 +4,7 @@ const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
     {
-      path: "/auth",
+      path: "/",
       name: "AuthView",
       component: () => import("../layouts/AuthLayout.vue"),
       children: [
@@ -24,6 +24,11 @@ const router = createRouter({
           component: () => import("../views/auth/ForgotPasswordView.vue"),
         }
       ],
+    },
+    {
+      path: "/home",
+      name: "MainView",
+      component: () => import("../layouts/HomeLayout.vue"),
     },
   ],
 });

@@ -11,7 +11,7 @@ export default {
           default: "#280f7e",
         },
         CerberusLightBlue: {
-          default: "#363dac",
+          default: "#111827",
         },
         CerberusDarkGray: {
           default: "#606d80",
