@@ -56,29 +56,29 @@
                 class="flex grow flex-col gap-y-5 overflow-y-auto bg-CerberusLightBlue-default px-6 pb-4"
               >
                 <div class="flex h-16 shrink-0 items-center">
-                  <img
-                    class="h-8 w-auto"
-                    src="../assets/CerberusIcon.svg"
-                  />
+                  <img class="h-8 w-auto" src="../assets/CerberusIcon.svg" />
+                  <p class="pl-4 font-medium text-xl text-white">Cerberus</p>
                 </div>
                 <nav class="flex flex-1 flex-col">
                   <ul role="list" class="flex flex-1 flex-col gap-y-7">
                     <li>
                       <ul role="list" class="-mx-2 space-y-1">
                         <li v-for="item in navigation" :key="item.name">
-                          <a
-                            :href="item.href"
+                          <router-link
+
+                            :key="item.name"
+                            :to="item.href"
                             :class="[
-                              item.current
+                              router.currentRoute.value.path === item.href
                                 ? 'bg-CerberusDarkBlue-default text-white'
                                 : 'text-white hover:text-white hover:bg-CerberusDarkBlue-default',
-                              'group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold',
+                              'group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-medium',
                             ]"
                           >
                             <component
                               :is="item.icon"
                               :class="[
-                                item.current
+                                router.currentRoute.value.path === item.href
                                   ? 'text-white'
                                   : 'text-white group-hover:text-white',
                                 'h-6 w-6 shrink-0',
@@ -86,13 +86,13 @@
                               aria-hidden="true"
                             />
                             {{ item.name }}
-                          </a>
+                          </router-link>
                         </li>
                       </ul>
                     </li>
-                    <li>
+                    <!-- <li>
                       <div
-                        class="text-xs font-semibold leading-6 text-white"
+                        class="text-xs font-medium leading-6 text-white"
                       >
                         Your teams
                       </div>
@@ -104,7 +104,7 @@
                               team.current
                                 ? 'bg-CerberusDarkBlue-default text-white'
                                 : 'text-white hover:text-white hover:bg-CerberusDarkBlue-default',
-                              'group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold',
+                              'group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-medium',
                             ]"
                           >
                             <span
@@ -115,11 +115,11 @@
                           </a>
                         </li>
                       </ul>
-                    </li>
+                    </li> -->
                     <li class="mt-auto">
                       <a
                         href="#"
-                        class="group -mx-2 flex gap-x-3 rounded-md p-2 text-sm font-semibold leading-6 text-white hover:bg-CerberusDarkBlue-default hover:text-white"
+                        class="group -mx-2 flex gap-x-3 rounded-md p-2 text-sm font-medium leading-6 text-white hover:bg-CerberusDarkBlue-default hover:text-white"
                       >
                         <Cog6ToothIcon
                           class="h-6 w-6 shrink-0 text-white group-hover:text-white"
@@ -145,31 +145,33 @@
       <div
         class="flex grow flex-col gap-y-5 overflow-y-auto bg-CerberusLightBlue-default px-6 pb-4"
       >
-        <div class="flex h-16 shrink-0 items-center">
+        <div class="flex h-16 pt-2 shrink-0 items-center">
           <img
             class="h-14 w-auto"
             src="..//assets/CerberusIcon.svg"
             alt="Your Company"
           />
+          <p class="pl-4 font-medium text-xl text-white">Cerberus</p>
         </div>
         <nav class="flex flex-1 flex-col">
           <ul role="list" class="flex flex-1 flex-col gap-y-7">
             <li>
               <ul role="list" class="-mx-2 space-y-1">
                 <li v-for="item in navigation" :key="item.name">
-                  <a
-                    :href="item.href"
+                  <router-link
+                    :key="item.name"
+                    :to="item.href"
                     :class="[
-                      item.current
+                      router.currentRoute.value.path === item.href
                         ? 'bg-CerberusDarkBlue-default text-white'
                         : 'text-white hover:text-white hover:bg-CerberusDarkBlue-default',
-                      'group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold',
+                      'group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-medium',
                     ]"
                   >
                     <component
                       :is="item.icon"
                       :class="[
-                        item.current
+                        router.currentRoute.value.path === item.href
                           ? 'text-white'
                           : 'text-white group-hover:text-white',
                         'h-6 w-6 shrink-0',
@@ -177,12 +179,12 @@
                       aria-hidden="true"
                     />
                     {{ item.name }}
-                  </a>
+                  </router-link>
                 </li>
               </ul>
             </li>
-            <li>
-              <div class="text-xs font-semibold leading-6 text-white">
+            <!-- <li>
+              <div class="text-xs font-medium leading-6 text-white">
                 Your teams
               </div>
               <ul role="list" class="-mx-2 mt-2 space-y-1">
@@ -193,7 +195,7 @@
                       team.current
                         ? 'bg-CerberusDarkBlue-default text-white'
                         : 'text-white hover:text-white hover:bg-CerberusDarkBlue-default',
-                      'group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold',
+                      'group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-medium',
                     ]"
                   >
                     <span
@@ -204,11 +206,11 @@
                   </a>
                 </li>
               </ul>
-            </li>
+            </li> -->
             <li class="mt-auto">
               <a
                 href="#"
-                class="group -mx-2 flex gap-x-3 rounded-md p-2 text-sm font-semibold leading-6 text-white hover:bg-CerberusDarkBlue-default hover:text-white"
+                class="group -mx-2 flex gap-x-3 rounded-md p-2 text-sm font-medium leading-6 text-white hover:bg-CerberusDarkBlue-default hover:text-white"
               >
                 <Cog6ToothIcon
                   class="h-6 w-6 shrink-0 text-white group-hover:text-white"
@@ -239,8 +241,7 @@
         <div class="h-6 w-px bg-gray-900/10 lg:hidden" aria-hidden="true" />
 
         <div class="flex justify-end flex-1 gap-x-4 self-stretch lg:gap-x-6">
-
-          <div class=" flex items-center gap-x-2 lg:gap-x-6">
+          <div class="flex items-center gap-x-2 lg:gap-x-6">
             <button
               type="button"
               class="-m-2.5 p-2.5 text-gray-400 hover:text-gray-500"
@@ -266,7 +267,7 @@
                 />
                 <span class="hidden lg:flex lg:items-center">
                   <span
-                    class="ml-4 text-sm font-semibold leading-6 text-gray-900"
+                    class="ml-4 text-sm font-medium leading-6 text-gray-900"
                     aria-hidden="true"
                     >Tom Cook</span
                   >
@@ -292,13 +293,13 @@
                     :key="item.name"
                     v-slot="{ active }"
                   >
-                    <a
-                      :href="item.href"
+                    <router-link
+                      :to="item.href"
                       :class="[
                         active ? 'bg-gray-50' : '',
                         'block px-3 py-1 text-sm leading-6 text-gray-900',
                       ]"
-                      >{{ item.name }}</a
+                      >{{ item.name }}</router-link
                     >
                   </MenuItem>
                 </MenuItems>
@@ -310,7 +311,7 @@
 
       <main class="py-10">
         <div class="px-4 sm:px-6 lg:px-8">
-          <!-- Your content -->
+          <router-view></router-view>
         </div>
       </main>
     </div>
@@ -318,6 +319,7 @@
 </template>
 
 <script setup>
+import router from "../router/index";
 import { ref } from "vue";
 import {
   Dialog,
@@ -333,9 +335,13 @@ import {
   Bars3Icon,
   BellIcon,
   CalendarIcon,
+  EyeIcon,
   ChartPieIcon,
   Cog6ToothIcon,
+  ShieldCheckIcon,
   DocumentDuplicateIcon,
+  PresentationChartBarIcon,
+  PlusCircleIcon,
   FolderIcon,
   HomeIcon,
   UsersIcon,
@@ -344,12 +350,12 @@ import {
 import { ChevronDownIcon, MagnifyingGlassIcon } from "@heroicons/vue/20/solid";
 
 const navigation = [
-  { name: "Dashboard", href: "#", icon: HomeIcon, current: true },
-  { name: "Team", href: "#", icon: UsersIcon, current: false },
-  { name: "Projects", href: "#", icon: FolderIcon, current: false },
-  { name: "Calendar", href: "#", icon: CalendarIcon, current: false },
-  { name: "Documents", href: "#", icon: DocumentDuplicateIcon, current: false },
-  { name: "Reports", href: "#", icon: ChartPieIcon, current: false },
+  { name: "Home", href: "/home", icon: HomeIcon, current: true },
+  { name: "Camaras", href: "/home/cams", icon: EyeIcon, current: false },
+  { name: "Estadisticas", href: "/home/estadisticas", icon: PresentationChartBarIcon, current: false },
+  { name: "Practicas Poligonos", href: "/home/practicas-poligonos", icon: PlusCircleIcon, current: false },
+  { name: "Personal", href: "/home/personal", icon: UsersIcon, current: false },
+  { name: "Fuerzas Militares", href: "/home/fuerzas-militares", icon: ShieldCheckIcon, current: false },
 ];
 const teams = [
   { id: 1, name: "Heroicons", href: "#", initial: "H", current: false },
@@ -357,7 +363,7 @@ const teams = [
   { id: 3, name: "Workcation", href: "#", initial: "W", current: false },
 ];
 const userNavigation = [
-  { name: "Your profile", href: "#" },
+  { name: "Your profile", href: "/home/perfil" },
   { name: "Sign out", href: "#" },
 ];
 

@@ -6,16 +6,16 @@
       <div class="w-full mx-auto">
         <div class=" flex justify-center">
           <img
-            class="w-24 md:w-24 lg:w-24 xl:w-24 2xl:w-24"
+            class="w-20 md:w-20 lg:w-20 xl:w-20 2xl:w-20"
             src="..//assets/CerberusIcon.svg"
           />
         </div>
         <div>
-          <h1 class="text-2xl font-bold text-center text-CerberusDarkBlue-default">CERBERUS</h1>
+          <h1 class="text-xl font-bold text-center text-CerberusDarkBlue-default">CERBERUS</h1>
         </div>
         <div>
-          <h2 class="text-CerberusLightBlue-default leading-6 text-lg pt-6 font-medium text-center">Autenticación requerida</h2>
-          <h2 class="text-CerberusLightBlue-default text-lg  font- font-medium text-center">Manteniendo la línea de defensa fuerte</h2>
+          <h2 class="text-CerberusLightBlue-default leading-6 text-base pt-6 font-medium text-center">Autenticación requerida</h2>
+          <h2 class="text-CerberusLightBlue-default text-base   font-medium text-center">Manteniendo la línea de defensa fuerte</h2>
         </div>
       </div>
 
