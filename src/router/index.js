@@ -97,6 +97,7 @@ router.beforeEach((to, from, next) => {
       const expirationTime = tokenPayload.exp * 1000;
       const currentTime = Date.now();
       if (currentTime > expirationTime) {
+        Cookies.remove("authData");
         next({ path: "/" });
       } else {
         next();
