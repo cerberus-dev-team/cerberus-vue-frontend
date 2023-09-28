@@ -30,7 +30,7 @@
       <!-- <div class="fixed top-3 right-4 flex items-center">
 
       </div> -->
-      <div class="w-full h-full flex justify-center object-center items-center">
+      <div class="w-full h-full flex justify-center ">
         <img
           src="https://res.cloudinary.com/di3jir3qe/image/upload/v1695907457/backgrounds/login_picture_jzvhta.webp"
           alt=""
