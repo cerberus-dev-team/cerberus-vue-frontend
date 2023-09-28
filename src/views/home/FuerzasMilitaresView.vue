@@ -42,30 +42,67 @@
               </tr>
             </thead>
             <tbody class="divide-y divide-gray-200 bg-white">
-              <tr
-                v-for="militaryForce in militaryForces"
-                :key="militaryForce.id"
-              >
-                <td class="whitespace-nowrap py-5 pl-4 pr-3 text-sm sm:pl-0">
-                  <div class="flex items-center">
-                    <div class="h-11 w-11 flex-shrink-0">
-                      <img class="w-10" :src="militaryForce.image_url" alt="" />
-                    </div>
-                    <div class="ml-4">
-                      <div class="font-medium text-gray-900">
-                        {{ militaryForce.id }}
+              <template v-if="militaryForces.length">
+                <tr
+                  v-for="militaryForce in militaryForces"
+                  :key="militaryForce.id"
+                >
+                  <td class="whitespace-nowrap py-5 pl-4 pr-3 text-sm sm:pl-0">
+                    <div class="flex items-center">
+                      <div class="h-11 w-11 flex-shrink-0">
+                        <img
+                          class="w-10 skeleton"
+                          :src="militaryForce.image_url"
+                          alt=""
+                        />
+                      </div>
+                      <div class="ml-4">
+                        <div class="font-medium text-gray-900 skeleton">
+                          {{ militaryForce.id }}
+                        </div>
                       </div>
                     </div>
-                  </div>
-                </td>
-                <td class="whitespace-nowrap px-3 py-5 text-sm text-gray-500">
-                  <div class="text-gray-900">{{ militaryForce.name }}</div>
-                  <!-- <div class="mt-1 text-gray-500">{{ militaryForce.created_at }}</div> -->
-                </td>
-                <td class="whitespace-nowrap px-3 py-5 text-sm text-gray-500">
-                  {{ militaryForce.role }}
-                </td>
-              </tr>
+                  </td>
+                  <td class="whitespace-nowrap px-3 py-5 text-sm text-gray-500">
+                    <div class="text-gray-900 skeleton">
+                      {{ militaryForce.name }}
+                    </div>
+                  </td>
+                  <td
+                    class="whitespace-nowrap px-3 py-5 text-sm text-gray-500 skeleton"
+                  >
+                    {{ militaryForce.role }}
+                  </td>
+                </tr>
+              </template>
+              <template v-else>
+                <tr v-for="index in 4" :key="index">
+                  <td class="whitespace-nowrap py-5 pl-4 pr-3 text-sm sm:pl-0">
+                    <div class="flex items-center">
+                      <div class="h-11 w-11 flex-shrink-0">
+                        <div
+                          class="w-10 h-10 bg-gray-200 rounded-full animation-animation-pulse"
+                        ></div>
+                      </div>
+                      <div class="ml-4">
+                        <div class="font-medium text-gray-900 animation-pulse">
+                          <div class="h-4 bg-gray-200 rounded w-1/2"></div>
+                        </div>
+                      </div>
+                    </div>
+                  </td>
+                  <td class="whitespace-nowrap px-3 py-5 text-sm text-gray-500">
+                    <div class="text-gray-900 skeleton animation-pulse">
+                      <div class="h-4 bg-gray-200 rounded w-1/2"></div>
+                    </div>
+                  </td>
+                  <td
+                    class="whitespace-nowrap px-3 py-5 text-sm text-gray-500 skeleton animation-pulse"
+                  >
+                    <div class="h-4 bg-gray-200 rounded w-1/4"></div>
+                  </td>
+                </tr>
+              </template>
             </tbody>
           </table>
         </div>
