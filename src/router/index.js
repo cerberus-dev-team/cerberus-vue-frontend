@@ -9,7 +9,7 @@ const router = createRouter({
       component: () => import("../views/errors/404NotFound.vue"),
     },
     {
-      path: "unauthorized",
+      path: "/unauthorized",
       name: "Unauthorized",
       component: () => import("../views/errors/401Unauthorized.vue"),
     },
@@ -39,6 +39,43 @@ const router = createRouter({
       path: "/home",
       name: "MainView",
       component: () => import("../layouts/HomeLayout.vue"),
+      children:[
+      {
+        path: "",
+        name: "HomeView",
+        component: () => import("../views/home/HomeView.vue"),
+      },
+      {
+        path: "cams",
+        name: "CamsView",
+        component: () => import("../views/home/CamsView.vue"),
+      },
+      {
+        path: "estadisticas",
+        name: "EstadisticasView",
+        component: () => import("../views/home/EstadisticasView.vue"),
+      },
+      {
+        path: "practicas-poligonos",
+        name: "PracticasPoligonosView",
+        component: () => import("../views/home/PracticasPoligonosView.vue"),
+      },
+      {
+        path: "personal",
+        name: "PersonalView",
+        component: () => import("../views/home/PersonalView.vue"),
+      },
+      {
+        path: "fuerzas-militares",
+        name: "FuerzasMilitaresView",
+        component: () => import("../views/home/FuerzasMilitaresView.vue"),
+      },
+      {
+        path: "perfil",
+        name: "PerfilView",
+        component: () => import("../views/home/PerfilView.vue"),
+      }
+      ]
     },
   ],
 });
