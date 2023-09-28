@@ -20,7 +20,7 @@
         id="password"
         type="password"
         placeholder="•••••••••"
-        v-model="email"
+        v-model="password"
         :required="true"
       />
     </div>
@@ -30,7 +30,7 @@
   </form>
   <div class="pt-4">
     <a>
-      <p class="text-CerberusLightBlue-default text-center">
+      <p class="text-CerberusDarkBlue-default text-sm text-center">
         ¿Olvidaste tu contraseña?
       </p>
     </a>
@@ -46,5 +46,31 @@ export default {
     InputField,
     Button
   },
+
+  data(){
+    return{
+      email:"",
+      password:"",
+
+    }
+  },
+
+  methods:
+  {
+    submitForm(){
+      const params ={
+        email: this.email,
+        password: this.password,
+      }
+      this.$store
+      .dispatch("LOGIN", params)
+      .then((response)=>{
+        console.log(response)
+        console.log(response.data.data.token)
+        this.$store.dispatch("SET_TOKEN", response.data.data.token)
+        this.$router.push({path: "/home"})
+      })
+    }
+  }
 };
 </script>

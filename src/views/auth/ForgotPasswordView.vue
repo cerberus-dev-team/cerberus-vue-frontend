@@ -6,7 +6,7 @@
     class="space-y-6"
   >
     <div>
-      <p class="text-base text-gray-400">
+      <p class="text-sm text-gray-400">
         Si tienes una cuenta con Cerberus, se te enviara un mensaje a tu bandeja
         de correo para que puedas recuperar tu contraseña
       </p>
