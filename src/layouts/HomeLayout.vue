@@ -65,7 +65,6 @@
                       <ul role="list" class="-mx-2 space-y-1">
                         <li v-for="item in navigation" :key="item.name">
                           <router-link
-
                             :key="item.name"
                             :to="item.href"
                             :class="[
@@ -258,18 +257,21 @@
 
             <!-- Profile dropdown -->
             <Menu as="div" class="relative">
-              <MenuButton class="-m-1.5 flex items-center p-1.5">
+              <MenuButton
+                v-if="basicInfo"
+                class="-m-1.5 flex items-center p-1.5"
+              >
                 <span class="sr-only">Open user menu</span>
                 <img
                   class="h-8 w-8 rounded-full bg-gray-50"
-                  src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+                  :src="basicInfo.image_url"
                   alt=""
                 />
                 <span class="hidden lg:flex lg:items-center">
                   <span
                     class="ml-4 text-sm font-medium leading-6 text-gray-900"
                     aria-hidden="true"
-                    >Tom Cook</span
+                    >{{ basicInfo.name }} {{ basicInfo.last_name }}</span
                   >
                   <ChevronDownIcon
                     class="ml-2 h-5 w-5 text-gray-400"
@@ -277,6 +279,26 @@
                   />
                 </span>
               </MenuButton>
+
+              <MenuButton
+                v-else
+                class="-m-1.5 flex items-center p-1.5 animate-pulse"
+              >
+                <span class="sr-only">Open user menu</span>
+                <div class="h-8 w-8 rounded-full bg-gray-300"></div>
+                <span class="hidden lg:flex lg:items-center">
+                  <div class="ml-4 text-sm font-medium leading-6 text-gray-300">
+                    <div
+                      class="bg-gray-300 h-3 w-32 rounded-md animate-pulse"
+                    ></div>
+                  </div>
+                  <ChevronDownIcon
+                    class="ml-2 h-5 w-5 text-gray-400 animate-pulse"
+                    aria-hidden="true"
+                  />
+                </span>
+              </MenuButton>
+
               <transition
                 enter-active-class="transition ease-out duration-100"
                 enter-from-class="transform opacity-0 scale-95"
@@ -320,7 +342,8 @@
 
 <script setup>
 import router from "../router/index";
-import { ref } from "vue";
+import { useStore } from "vuex";
+import { computed, onMounted, ref } from "vue";
 import {
   Dialog,
   DialogPanel,
@@ -352,10 +375,25 @@ import { ChevronDownIcon, MagnifyingGlassIcon } from "@heroicons/vue/20/solid";
 const navigation = [
   { name: "Home", href: "/home", icon: HomeIcon, current: true },
   { name: "Camaras", href: "/home/cams", icon: EyeIcon, current: false },
-  { name: "Estadisticas", href: "/home/estadisticas", icon: PresentationChartBarIcon, current: false },
-  { name: "Practicas Poligonos", href: "/home/practicas-poligonos", icon: PlusCircleIcon, current: false },
+  {
+    name: "Estadisticas",
+    href: "/home/estadisticas",
+    icon: PresentationChartBarIcon,
+    current: false,
+  },
+  {
+    name: "Practicas Poligonos",
+    href: "/home/practicas-poligonos",
+    icon: PlusCircleIcon,
+    current: false,
+  },
   { name: "Personal", href: "/home/personal", icon: UsersIcon, current: false },
-  { name: "Fuerzas Militares", href: "/home/fuerzas-militares", icon: ShieldCheckIcon, current: false },
+  {
+    name: "Fuerzas Militares",
+    href: "/home/fuerzas-militares",
+    icon: ShieldCheckIcon,
+    current: false,
+  },
 ];
 const teams = [
   { id: 1, name: "Heroicons", href: "#", initial: "H", current: false },
@@ -367,5 +405,15 @@ const userNavigation = [
   { name: "Sign out", href: "#" },
 ];
 
+const store = useStore();
+
 const sidebarOpen = ref(false);
+
+const basicInfo = computed(() => store.getters.basicInfo);
+
+const getBasicInfo = () => store.dispatch("GET_BASIC_INFO");
+
+onMounted(() => {
+  getBasicInfo();
+});
 </script>

@@ -31,10 +31,22 @@ export default {
           },
         }
       );
-      
+
       commit("SET_MILITARY_FORCES", data.data);
     } catch (error) {
       throw error;
     }
+  },
+
+  async GET_BASIC_INFO({ state, commit }) {
+    try {
+      const URL = `${state.url_cerberus_api}/api/military-personnel/profile`;
+      const { data } = await axios.get(URL, {
+        headers: {
+          Authorization: `Bearer ${Cookies.get("authData")}`,
+        },
+      });
+      commit("SET_BASIC_INFO", data.data);
+    } catch (error) {}
   },
 };

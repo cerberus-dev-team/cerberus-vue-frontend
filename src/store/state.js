@@ -5,4 +5,5 @@ export default {
     url_cerberus_api: URL_CERBERUS_API,
     client_secret: CLIENT_SECRET,
     militaryForces: [],
+    basicInfo: null,
 }
