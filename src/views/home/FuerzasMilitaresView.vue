@@ -9,14 +9,6 @@
           Listado de las fuerzas militares registradas en el sistema
         </p>
       </div>
-      <!-- <div class="mt-4 sm:ml-16 sm:mt-0 sm:flex-none">
-          <button
-            type="button"
-            class="block rounded-md bg-indigo-600 px-3 py-2 text-center text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
-          >
-            Add user
-          </button>
-        </div> -->
     </div>
     <div class="mt-8 flow-root">
       <div class="-mx-4 -my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
@@ -81,23 +73,23 @@
                     <div class="flex items-center">
                       <div class="h-11 w-11 flex-shrink-0">
                         <div
-                          class="w-10 h-10 bg-gray-200 rounded-full animation-animation-pulse"
+                          class="w-10 h-10 bg-gray-200 rounded-full animate-pulse"
                         ></div>
                       </div>
                       <div class="ml-4">
-                        <div class="font-medium text-gray-900 animation-pulse">
+                        <div class="font-medium text-gray-900 animate-pulse">
                           <div class="h-4 bg-gray-200 rounded w-1/2"></div>
                         </div>
                       </div>
                     </div>
                   </td>
                   <td class="whitespace-nowrap px-3 py-5 text-sm text-gray-500">
-                    <div class="text-gray-900 skeleton animation-pulse">
+                    <div class="text-gray-900 animate-pulse">
                       <div class="h-4 bg-gray-200 rounded w-1/2"></div>
                     </div>
                   </td>
                   <td
-                    class="whitespace-nowrap px-3 py-5 text-sm text-gray-500 skeleton animation-pulse"
+                    class="whitespace-nowrap px-3 py-5 text-sm text-gray-500 animate-pulse"
                   >
                     <div class="h-4 bg-gray-200 rounded w-1/4"></div>
                   </td>
