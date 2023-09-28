@@ -32,7 +32,7 @@
       </div> -->
       <div class="w-full h-full flex justify-center object-center items-center">
         <img
-          src="../assets/Banner2.jpg"
+          src="https://res.cloudinary.com/di3jir3qe/image/upload/v1695907457/backgrounds/login_picture_jzvhta.jpg"
           alt=""
           draggable="false"
           class="transition duration-200 ease-in-out max-h-screen w-full    object-left object-cover"
