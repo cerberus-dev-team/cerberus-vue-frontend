@@ -10,15 +10,31 @@ export default {
       clientSecret: state.client_secret,
     };
     try {
-      const  data  = await axios.post(LOGIN_URL, params);
+      const data = await axios.post(LOGIN_URL, params);
       return data;
     } catch (error) {
       throw error;
     }
   },
 
-  SET_TOKEN({state}, token) {
+  SET_TOKEN({ state }, token) {
     Cookies.set("authData", token);
-  }
-};
+  },
 
+  async GET_MILITARY_FORCES({ state, commit }) {
+    try {
+      const { data } = await axios.get(
+        `${state.url_cerberus_api}/api/military-forces`,
+        {
+          headers: {
+            Authorization: `Bearer ${Cookies.get("authData")}`,
+          },
+        }
+      );
+      
+      commit("SET_MILITARY_FORCES", data.data);
+    } catch (error) {
+      throw error;
+    }
+  },
+};
