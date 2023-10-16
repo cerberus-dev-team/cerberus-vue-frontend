@@ -1,5 +1,6 @@
 import axios from "axios";
 import Cookies from "js-cookie";
+import { toast } from "vue-sonner";
 
 export default {
   async LOGIN({ state }, { email, password }) {
@@ -48,5 +49,70 @@ export default {
       });
       commit("SET_BASIC_INFO", data.data);
     } catch (error) {}
+  },
+
+  async GET_SECURITY_NODES({ state, commit }) {
+    try {
+      const URL = `${state.url_cerberus_api}/api/military-installations/security-nodes`;
+      const { data } = await axios.get(URL, {
+        headers: {
+          Authorization: `Bearer ${Cookies.get("authData")}`,
+        },
+      });
+      commit("SET_SECURITY_NODES", data.data);
+    } catch (error) {}
+  },
+
+  async CONNECT_BROKER({ commit, dispatch, getters }) {
+    const client = getters.broker;
+    client.on("connect", () => commit("SET_BROKER", client));
+
+    client.on("error", () => {
+      toast.error("Error al conectar con el servidor de mensajes", {
+        description: "Por favor, intente nuevamente más tarde",
+      });
+    });
+
+    client.on("message", (topic, message) => {
+      console.log(topic);
+      if (topic === "pinged") {
+        dispatch("SHOW_MESSAGE", {
+          type: "success",
+          title: "¡Éxito!",
+          description: "Se ha recibido un mensaje de ping",
+        });
+      }
+
+      if (topic === "anomally") {
+        let objectDetected = "";
+        if (message.toString() === "person") {
+          objectDetected = "persona";
+        }
+
+        dispatch("SHOW_MESSAGE", {
+          type: "error",
+          title: "¡Alerta!",
+          description: `Se ha detectado una ${objectDetected} en una zona restringida`,
+        });
+      }
+    });
+  },
+
+  async PUBLISH({ state }, { topic, msg }) {
+    state.broker.publish(topic, msg);
+  },
+
+  async SUBSCRIBE({ state }, { topic }) {
+    state.broker.subscribe(topic);
+  },
+
+  async UNSUBSCRIBE({ state }, { topic }) {
+    state.broker.unsubscribe(topic);
+  },
+
+  SHOW_MESSAGE({}, { type, title, description }) {
+    toast[type](title, {
+      description,
+    });
   },
 };

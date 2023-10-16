@@ -369,6 +369,7 @@ import {
   HomeIcon,
   UsersIcon,
   XMarkIcon,
+  CameraIcon
 } from "@heroicons/vue/24/outline";
 import { ChevronDownIcon, MagnifyingGlassIcon } from "@heroicons/vue/20/solid";
 
@@ -394,6 +395,11 @@ const navigation = [
     icon: ShieldCheckIcon,
     current: false,
   },
+  {
+    name: "Nodos de Seguridad",
+    href: "/home/nodos-seguridad",
+    icon: CameraIcon,
+  }
 ];
 const teams = [
   { id: 1, name: "Heroicons", href: "#", initial: "H", current: false },

@@ -6,4 +6,12 @@ export default{
     SET_BASIC_INFO(state, basicInfo){
         state.basicInfo = basicInfo
     },
+
+    SET_SECURITY_NODES(state, securityNodes){
+        state.securityNodes = securityNodes
+    },
+
+    SET_BROKER(state, broker){
+        state.broker = broker
+    },
 }

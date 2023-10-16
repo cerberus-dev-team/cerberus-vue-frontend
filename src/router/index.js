@@ -84,6 +84,11 @@ const router = createRouter({
           name: "PerfilView",
           component: () => import("../views/home/PerfilView.vue"),
         },
+        {
+          path: "nodos-seguridad",
+          name: "SecurityNodesView",
+          component: () => import("../views/home/SecurityNodesView.vue"),
+        }
       ],
     },
   ],
