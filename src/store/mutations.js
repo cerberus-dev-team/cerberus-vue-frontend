@@ -6,4 +6,8 @@ export default{
     SET_BASIC_INFO(state, basicInfo){
         state.basicInfo = basicInfo
     },
+
+    SET_MILITARY_USERS(state, militaryUsers){
+        state.militaryUsers = militaryUsers
+    },
 }

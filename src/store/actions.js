@@ -47,6 +47,9 @@ export default {
         },
       });
       commit("SET_BASIC_INFO", data.data);
-    } catch (error) {}
+      commit("SET_MILITARY_USERS", data.data);
+    } catch (error) {
+      throw error;
+    }
   },
 };
