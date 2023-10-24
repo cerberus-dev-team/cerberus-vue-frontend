@@ -65,8 +65,6 @@ export default {
       this.$store
       .dispatch("LOGIN", params)
       .then((response)=>{
-        console.log(response)
-        console.log(response.data.data.token)
         this.$store.dispatch("SET_TOKEN", response.data.data.token)
         this.$router.push({path: "/home"})
       })

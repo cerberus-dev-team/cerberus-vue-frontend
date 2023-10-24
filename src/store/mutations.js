@@ -14,4 +14,8 @@ export default{
     SET_BROKER(state, broker){
         state.broker = broker
     },
+    
+    SET_MILITARY_USERS(state, militaryUsers){
+        state.militaryUsers = militaryUsers
+    },
 }
