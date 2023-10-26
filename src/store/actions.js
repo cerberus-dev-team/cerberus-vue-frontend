@@ -52,4 +52,17 @@ export default {
       throw error;
     }
   },
+  async GET_ALL_USERS({ state, commit }) {
+    try {
+      const URL = `${state.url_cerberus_api}/api/military-personnel`;
+      const { data } = await axios.get(URL, {
+        headers: {
+          Authorization: `Bearer ${Cookies.get("authData")}`,
+        },
+      })
+      commit("SET_MILITARY_USERS", data.data);
+    } catch (error) {
+      throw error;
+    }
+  },
 };
