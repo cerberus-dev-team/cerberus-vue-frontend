@@ -1,7 +1,7 @@
 <template>
   <div class="container my-5 p-2 md:mx-3">
     <div class="md:flex no-wrap">
-      <div class="w-full md:w-3/12">
+      <div class="w-full mr-20 md:w-3/12">
         <div class="p-4 rounded-full">
           <img
             class="w-44 md:w-44 sm:w-48 lg:w-auto xl:w-52 mx-auto rounded-full"
@@ -18,7 +18,7 @@
         </div>
       </div>
       <div class="w-full md:w-9/12 mx-3 h-64">
-        <div>
+        <div class="justify-center object-center align-middle">
           <div
             class="p-0 md:p-2 sm:p-2 lg:p-2 xl:p-6 xl:text-left pt-8 text-center"
           >
@@ -146,6 +146,7 @@
 
 <script setup>
 import InputField from "../../components/common/InputField.vue";
+import Button from "../../components/common/Button.vue";
 import { useStore } from "vuex";
 import { computed, onMounted, ref } from "vue";
 
