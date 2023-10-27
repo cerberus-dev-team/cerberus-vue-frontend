@@ -57,7 +57,12 @@ export default {
   async GET_SECURITY_NODES({ state, commit }) {
     try {
       const URL = `${state.url_cerberus_api}/api/military-installations/security-nodes`;
-      commit("SET_MILITARY_USERS", data.data);
+      const { data } = await axios.get(URL, {
+        headers: {
+          Authorization: `Bearer ${Cookies.get("authData")}`,
+        },
+      });
+      commit("SET_SECURITY_NODES", data.data);
     } catch (error) {
       throw error;
     }
@@ -71,8 +76,10 @@ export default {
           Authorization: `Bearer ${Cookies.get("authData")}`,
         },
       });
-      commit("SET_SECURITY_NODES", data.data);
-    } catch (error) {}
+      commit("SET_MILITARY_USERS", data.data);
+    } catch (error) {
+      throw error;
+    }
   },
 
   async CONNECT_BROKER({ commit, dispatch, getters }) {
