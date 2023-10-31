@@ -118,7 +118,7 @@
                     </div>
                     <div class="ml-4">
                       <div class="font-medium text-gray-900">
-                        {{ MilitaryUser.name }}
+                        {{ MilitaryUser.name }} {{ MilitaryUser.last_name  }}
                       </div>
                       <div class="mt-1 text-gray-500">
                         {{ MilitaryUser.email }}
