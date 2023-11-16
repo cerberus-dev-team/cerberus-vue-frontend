@@ -55,9 +55,9 @@ const router = createRouter({
           component: () => import("../views/home/HomeView.vue"),
         },
         {
-          path: "cams",
-          name: "CamsView",
-          component: () => import("../views/home/CamsView.vue"),
+          path: "alertas",
+          name: "AlertsView",
+          component: () => import("../views/home/AlertsView.vue"),
         },
         {
           path: "estadisticas",

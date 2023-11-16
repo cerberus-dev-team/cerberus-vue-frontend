@@ -18,4 +18,7 @@ export default {
   SET_MILITARY_USERS(state, militaryUsers) {
     state.militaryUsers = militaryUsers;
   },
+  SET_INSTALLATION_ANOMALIES(state, installationAnomalies) {
+    state.installationAnomalies = installationAnomalies;
+  }
 };

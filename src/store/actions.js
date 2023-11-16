@@ -117,6 +117,20 @@ export default {
     });
   },
 
+  async GET_INSTALLATION_ANOMALIES({ state, commit }) {
+    try {
+      const URL = `${state.url_cerberus_api}/api/installation-anomalies`;
+      const { data } = await axios.get(URL, {
+        headers: {
+          Authorization: `Bearer ${Cookies.get("authData")}`,
+        },
+      });
+      commit("SET_INSTALLATION_ANOMALIES", data.data);
+    } catch (error) {
+      throw error;
+    }
+  },
+
   async PUBLISH({ state }, { topic, msg }) {
     state.broker.publish(topic, msg);
   },

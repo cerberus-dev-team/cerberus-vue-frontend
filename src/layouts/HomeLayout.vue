@@ -369,13 +369,14 @@ import {
   HomeIcon,
   UsersIcon,
   XMarkIcon,
-  CameraIcon
+  CameraIcon,
+  BellAlertIcon
 } from "@heroicons/vue/24/outline";
 import { ChevronDownIcon, MagnifyingGlassIcon } from "@heroicons/vue/20/solid";
 
 const navigation = [
   { name: "Home", href: "/home", icon: HomeIcon, current: true },
-  { name: "Camaras", href: "/home/cams", icon: EyeIcon, current: false },
+  { name: "Alertas", href: "/home/alertas", icon: BellAlertIcon, current: false },
   {
     name: "Estadisticas",
     href: "/home/estadisticas",

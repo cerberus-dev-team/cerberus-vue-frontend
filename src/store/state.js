@@ -18,6 +18,7 @@ export default {
   militaryUsers: [],
   basicInfo: null,
   securityNodes: [],
+  installationAnomalies: [],
   broker: mqtt.connect(
     `${mqttOptions.protocol}://${mqttOptions.host}${mqttOptions.path}`,
     {
