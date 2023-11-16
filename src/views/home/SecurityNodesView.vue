@@ -118,8 +118,7 @@
 </template>
   
 <script setup>
-import { computed, onBeforeMount, onMounted } from "vue";
-import { toast } from "vue-sonner";
+import { computed, onMounted } from "vue";
 import { useStore } from "vuex";
 
 const store = useStore();
@@ -130,21 +129,11 @@ const { ping } = PUB_TOPICS;
 const securityNodes = computed(() => store.state.securityNodes);
 
 const getSecurityNodes = () => store.dispatch("GET_SECURITY_NODES");
-const connectBroker = async () => {
-  try {
-    await store.dispatch("CONNECT_BROKER");
-  } catch (error) {
-    toast.error("No se pudo conectar al broker");
-  }
-};
 
 const publish = (topic, msg) => store.dispatch("PUBLISH", { topic, msg });
 
 const suscribeDevicePinged = () =>
   store.dispatch("SUBSCRIBE", { topic: "pinged" });
-
-const suscribeAnomallyDetected = () =>
-  store.dispatch("SUBSCRIBE", { topic: "anomally" })  
 
 const hideId = (uuid) => {
   return (
@@ -156,8 +145,6 @@ const hideId = (uuid) => {
 
 onMounted(() => {
   getSecurityNodes();
-  connectBroker();
-  suscribeAnomallyDetected();
 });
 </script>
 

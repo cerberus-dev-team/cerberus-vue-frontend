@@ -419,7 +419,20 @@ const basicInfo = computed(() => store.getters.basicInfo);
 
 const getBasicInfo = () => store.dispatch("GET_BASIC_INFO");
 
+const connectBroker = async () => {
+  try {
+    await store.dispatch("CONNECT_BROKER");
+  } catch (error) {
+    toast.error("No se pudo conectar al broker");
+  }
+};
+
+const suscribeAnomallyDetected = () =>
+  store.dispatch("SUBSCRIBE", { topic: "anomally" })  
+
 onMounted(() => {
   getBasicInfo();
+  connectBroker();
+  suscribeAnomallyDetected();
 });
 </script>
